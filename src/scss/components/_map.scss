@@ -1,8 +1,20 @@
 .map-list-item {
-  @apply py-8 md:py-[52px] border-b border-gray-200 cursor-pointer relative transition-all duration-500 ease-[cubic-bezier(.77,.14,.11,.88)];
+  @apply p-4 md:py-8 md:py-[52px] border-b border-gray-200 cursor-pointer relative transition-all duration-500 ease-[cubic-bezier(.77,.14,.11,.88)];
+
+  &__desktop {
+    @apply hidden md:block;
+  }
+
+  &__mobile {
+    @apply block md:hidden;
+  }
 
   &__header {
     @apply flex flex-col lg:flex-row gap-5 justify-between w-full;
+  }
+
+  &__headerMobile {
+    @apply flex lg:flex-row gap-5 justify-between w-full;
   }
 
   &__heading {
@@ -49,11 +61,25 @@
     }
   }
 
+  &__infoMobile {
+    @apply flex-shrink-0 lg:ml-0 transition-colors;
+  }
+
   &__address {
     @apply ml-14 transition-all duration-500 overflow-hidden h-0 ease-[cubic-bezier(.77,.14,.11,.88)];
   }
 
+  &__addressMobile {
+    @apply transition-all duration-500 overflow-hidden h-0 ease-[cubic-bezier(.77,.14,.11,.88)];
+  }
+
   &.active &__address {
-    @apply h-11 mt-6;
+    @apply h-11 mt-6 text-white;
+  }
+  &.active &__infoMobile {
+    @apply text-white;
+  }
+  &.active &__addressMobile {
+    @apply h-11 mt-6 text-white text-[14px];
   }
 }
